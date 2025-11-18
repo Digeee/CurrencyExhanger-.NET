@@ -1,11 +1,18 @@
 using CurrencyExchangeApp.Client.Pages;
 using CurrencyExchangeApp.Components;
+using CurrencyExchangeApp.Client.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// Register HTTP client for server-side operations
+builder.Services.AddHttpClient();
+
+// Register client services for server-side prerendering
+builder.Services.AddScoped<ICurrencyExchangeService, CurrencyExchangeApp.Client.Services.ExchangeRateApiService>();
 
 var app = builder.Build();
 
@@ -22,7 +29,6 @@ else
 }
 
 app.UseHttpsRedirection();
-
 
 app.UseAntiforgery();
 
