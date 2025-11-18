@@ -207,8 +207,6 @@ C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bi
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_CJK.tjcz0u77k5.dat
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_EFIGS.tptq2av103.dat
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_no_CJK.lfu7j35m59.dat
-C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\CurrencyExchangeApp.Client.xh0dmt64uh.wasm
-C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\CurrencyExchangeApp.Client.zub8kori41.pdb
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\blazor.boot.json
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\blazor.webassembly.js.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\Microsoft.AspNetCore.Authorization.50odlujk1g.wasm.gz
@@ -411,8 +409,6 @@ C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bi
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_CJK.tjcz0u77k5.dat.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_EFIGS.tptq2av103.dat.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\icudt_no_CJK.lfu7j35m59.dat.gz
-C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\CurrencyExchangeApp.Client.xh0dmt64uh.wasm.gz
-C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\CurrencyExchangeApp.Client.zub8kori41.pdb.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\blazor.boot.json.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\CurrencyExchangeApp.Client.staticwebassets.runtime.json
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\CurrencyExchangeApp.Client.staticwebassets.endpoints.json
@@ -1019,9 +1015,6 @@ C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\ob
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\compressed\8df16l2g28-tjcz0u77k5.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\compressed\5bh2vd2cjl-tptq2av103.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\compressed\xutcan1wda-lfu7j35m59.gz
-C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\compressed\0c296xj9op-xh0dmt64uh.gz
-C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\compressed\lmcm94ykdw-zub8kori41.gz
-C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\compressed\3gydmafco5-0996lp51d6.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\staticwebassets.development.json
@@ -1031,3 +1024,10 @@ C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\ob
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\refint\CurrencyExchangeApp.Client.dll
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\CurrencyExchangeApp.Client.pdb
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\ref\CurrencyExchangeApp.Client.dll
+C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\CurrencyExchangeApp.Client.7ntm13wq8l.wasm
+C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\CurrencyExchangeApp.Client.bs4la7hmau.pdb
+C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\CurrencyExchangeApp.Client.7ntm13wq8l.wasm.gz
+C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\bin\Debug\net9.0\wwwroot\_framework\CurrencyExchangeApp.Client.bs4la7hmau.pdb.gz
+C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\compressed\0c296xj9op-7ntm13wq8l.gz
+C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\compressed\lmcm94ykdw-bs4la7hmau.gz
+C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp.Client\obj\Debug\net9.0\compressed\3gydmafco5-yzbd877tef.gz
