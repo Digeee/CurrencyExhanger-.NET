@@ -1,0 +1,50 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.0.0
+MinimumVisualStudioVersion = 16.0.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyExchangeApp", "CurrencyExchangeApp\CurrencyExchangeApp.csproj", "{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyExchangeApp.Client", "CurrencyExchangeApp.Client\CurrencyExchangeApp.Client.csproj", "{1B9BB33E-F517-408F-86E5-D63929BC7283}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Debug|x64.Build.0 = Debug|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Debug|x86.Build.0 = Debug|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Release|x64.ActiveCfg = Release|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Release|x64.Build.0 = Release|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Release|x86.ActiveCfg = Release|Any CPU
+		{1B9BB33E-F517-408F-86E5-D63929BC7283}.Release|x86.Build.0 = Release|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Debug|x64.Build.0 = Debug|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Debug|x86.Build.0 = Debug|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Release|x64.ActiveCfg = Release|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Release|x64.Build.0 = Release|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Release|x86.ActiveCfg = Release|Any CPU
+		{8EFE5D92-8AE7-473D-8C25-283DA6DDA03E}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F383651-3A5C-42DE-A0DC-C04ED0F5F87A}
+	EndGlobalSection
+EndGlobal
