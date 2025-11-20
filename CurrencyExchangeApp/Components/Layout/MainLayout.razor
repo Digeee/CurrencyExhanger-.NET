@@ -21,3 +21,140 @@
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
 </div>
+
+<style>
+    .page {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background: var(--neumorphism-bg);
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        background: var(--neumorphism-bg);
+        box-shadow: 
+            4px 0 8px var(--neumorphism-dark-shadow),
+            -4px 0 8px var(--neumorphism-light-shadow);
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .top-row {
+        background: var(--neumorphism-bg);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 
+            0 4px 8px var(--neumorphism-dark-shadow),
+            0 -4px 8px var(--neumorphism-light-shadow);
+        justify-content: flex-end;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .top-row a, .top-row .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+        color: var(--gray-text);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius-sm);
+    }
+
+    .top-row a:hover, .top-row .btn-link:hover {
+        color: var(--light-text);
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateY(-2px);
+    }
+
+    .top-row a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .content {
+        padding: 0 !important;
+        flex: 1;
+    }
+
+    .navbar-toggler {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: var(--border-radius-sm);
+        box-shadow: 
+            2px 2px 4px var(--neumorphism-dark-shadow),
+            -2px -2px 4px var(--neumorphism-light-shadow);
+    }
+
+    .navbar-toggler:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+    }
+
+    .navbar-toggler:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.3);
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    #blazor-error-ui {
+        background: var(--neumorphism-bg);
+        box-shadow: 
+            0 4px 8px var(--neumorphism-dark-shadow),
+            0 -4px 8px var(--neumorphism-light-shadow);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: var(--border-radius-sm);
+    }
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+        color: var(--gray-text);
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    #blazor-error-ui .dismiss:hover {
+        color: var(--light-text);
+        transform: scale(1.1);
+    }
+
+    @media (max-width: 640.98px) {
+        .top-row {
+            justify-content: space-between;
+        }
+
+        .top-row a, .top-row .btn-link {
+            margin-left: 0;
+        }
+    }
+
+    @media (min-width: 641px) {
+        .page {
+            flex-direction: row;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .top-row {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 0 !important;
+        }
+    }
+</style>

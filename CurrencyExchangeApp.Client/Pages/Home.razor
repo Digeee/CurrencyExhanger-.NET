@@ -5,10 +5,10 @@
 
 <div class="container-fluid home-page">
     <div class="row justify-content-center">
-        <div class="col-12 text-center">
-            <div class="hero-section glassmorphism p-5 rounded">
-                <h1 class="display-3 fw-bold mb-4">💱 Modern Currency Exchange</h1>
-                <p class="lead mb-5">Real-time currency conversion with beautiful visualizations and seamless experience</p>
+        <div class="col-12">
+            <div class="hero-section">
+                <h1>💱 Modern Currency Exchange</h1>
+                <p class="lead">Real-time currency conversion with beautiful visualizations and seamless experience</p>
                 <div class="cta-buttons">
                     <a href="/converter" class="btn btn-primary btn-lg me-3">
                         <i class="bi bi-currency-exchange"></i> Start Converting
@@ -27,9 +27,9 @@
             
             <div class="row">
                 <div class="col-12 col-md-4 mb-4">
-                    <div class="feature-card glassmorphism p-4 h-100">
-                        <div class="feature-icon mb-3">
-                            <i class="bi bi-lightning-fill fs-1"></i>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-lightning-fill"></i>
                         </div>
                         <h3>Real-time Rates</h3>
                         <p>Get the most up-to-date exchange rates from reliable sources with minimal latency.</p>
@@ -37,9 +37,9 @@
                 </div>
                 
                 <div class="col-12 col-md-4 mb-4">
-                    <div class="feature-card glassmorphism p-4 h-100">
-                        <div class="feature-icon mb-3">
-                            <i class="bi bi-graph-up fs-1"></i>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-graph-up"></i>
                         </div>
                         <h3>Historical Data</h3>
                         <p>Visualize currency trends with interactive charts showing 7-day and 30-day history.</p>
@@ -47,9 +47,9 @@
                 </div>
                 
                 <div class="col-12 col-md-4 mb-4">
-                    <div class="feature-card glassmorphism p-4 h-100">
-                        <div class="feature-icon mb-3">
-                            <i class="bi bi-phone fs-1"></i>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-phone"></i>
                         </div>
                         <h3>Mobile First</h3>
                         <p>Fully responsive design that works flawlessly on all devices from phones to desktops.</p>
@@ -70,69 +70,162 @@
     }
     
     .hero-section {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        animation: fadeIn 1s ease-out;
+        background: var(--neumorphism-bg);
+        border-radius: var(--border-radius-lg);
+        padding: 3rem 2rem;
+        text-align: center;
+        box-shadow: 
+            16px 16px 32px var(--neumorphism-dark-shadow),
+            -16px -16px 32px var(--neumorphism-light-shadow);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        animation: float 6s ease-in-out infinite;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(67, 97, 238, 0.1) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    .hero-section:hover::before {
+        opacity: 1;
     }
     
     .hero-section h1 {
-        background: linear-gradient(90deg, #4cc9f0, #4361ee);
+        font-weight: 800;
+        background: linear-gradient(90deg, #4cc9f0, #4361ee, #3a0ca3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1.5rem;
+        font-size: 3rem;
+        text-shadow: 0 2px 10px rgba(76, 201, 240, 0.2);
+    }
+    
+    .hero-section .lead {
+        font-size: 1.25rem;
+        color: var(--gray-text);
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-buttons .btn {
+        margin: 0 0.75rem;
+        padding: 0.85rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: var(--border-radius-sm);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: 
+            8px 8px 16px var(--neumorphism-dark-shadow),
+            -8px -8px 16px var(--neumorphism-light-shadow);
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border: none;
+        color: white;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-4px);
+        box-shadow: 
+            12px 12px 24px var(--neumorphism-dark-shadow),
+            -12px -12px 24px var(--neumorphism-light-shadow),
+            0 0 20px rgba(67, 97, 238, 0.4);
+    }
+    
+    .btn-outline-light {
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        color: var(--light-text);
+    }
+    
+    .btn-outline-light:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--accent-color);
+        transform: translateY(-4px);
+        box-shadow: 
+            8px 8px 16px var(--neumorphism-dark-shadow),
+            -8px -8px 16px var(--neumorphism-light-shadow),
+            0 0 15px rgba(76, 201, 240, 0.3);
+    }
+    
+    .feature-card {
+        background: var(--neumorphism-bg);
+        border-radius: var(--border-radius-md);
+        padding: 2rem;
+        height: 100%;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: 
+            10px 10px 20px var(--neumorphism-dark-shadow),
+            -10px -10px 20px var(--neumorphism-light-shadow);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 
+            15px 15px 30px var(--neumorphism-dark-shadow),
+            -15px -15px 30px var(--neumorphism-light-shadow),
+            0 0 30px rgba(76, 201, 240, 0.2);
+    }
+    
+    .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, var(--accent-color), #38bdf8);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
     
-    .cta-buttons .btn {
-        transition: all 0.3s ease;
-        border-radius: 12px;
-        padding: 0.75rem 1.5rem;
+    .feature-card h3 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
     }
     
-    .cta-buttons .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    .btn-primary {
-        background: linear-gradient(90deg, #4361ee, #3a0ca3);
-        border: none;
-    }
-    
-    .btn-primary:hover {
-        background: linear-gradient(90deg, #3a0ca3, #4361ee);
-    }
-    
-    .feature-card {
-        transition: all 0.3s ease;
-        border-radius: 16px;
-    }
-    
-    .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    }
-    
-    .feature-icon {
-        color: #4cc9f0;
+    .feature-card p {
+        color: var(--gray-text);
+        font-size: 1.1rem;
+        line-height: 1.6;
     }
     
     @@media (max-width: 768px) {
-        .home-page {
-            padding: 1rem;
+        .hero-section {
+            padding: 2rem 1.5rem;
         }
         
-        .hero-section {
-            padding: 2rem 1rem;
+        .hero-section h1 {
+            font-size: 2.2rem;
+        }
+        
+        .hero-section .lead {
+            font-size: 1.1rem;
         }
         
         .cta-buttons .btn {
-            margin: 0.5rem;
             display: block;
             width: 80%;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0.75rem auto;
+            padding: 0.75rem 1.5rem;
+        }
+        
+        .feature-card {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
         }
     }
 </style>

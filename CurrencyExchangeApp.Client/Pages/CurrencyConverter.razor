@@ -11,8 +11,8 @@
 <div class="container-fluid currency-converter">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <div class="converter-card glassmorphism">
-                <h1 class="text-center mb-4">💱 Currency Converter</h1>
+            <div class="converter-card neumorphism">
+                <h1 class="mb-4">💱 Currency Converter</h1>
                 
                 <div class="conversion-section">
                     <!-- From Currency -->
@@ -29,19 +29,23 @@
                         </div>
                         
                         <div class="currency-selector">
-                            <button class="btn btn-outline-light currency-btn w-100" 
+                            <button class="currency-btn" 
                                     @onclick="() => ShowCurrencySelector(true)">
-                                <span class="flag-icon">@fromCurrency.FlagIcon</span>
-                                <span class="currency-code">@fromCurrency.Code</span>
-                                <span class="currency-name">@fromCurrency.Name</span>
+                                <div class="d-flex align-items-center">
+                                    <span class="flag-icon">@fromCurrency.FlagIcon</span>
+                                    <div>
+                                        <div class="currency-code">@fromCurrency.Code</div>
+                                        <div class="currency-name">@fromCurrency.Name</div>
+                                    </div>
+                                </div>
                             </button>
                         </div>
                     </div>
                     
                     <!-- Swap Button -->
-                    <div class="swap-container text-center my-3">
-                        <button class="btn btn-swap" @onclick="SwapCurrencies">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                    <div class="swap-container">
+                        <button class="btn-swap" @onclick="SwapCurrencies">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/>
                             </svg>
                         </button>
@@ -61,22 +65,26 @@
                         </div>
                         
                         <div class="currency-selector">
-                            <button class="btn btn-outline-light currency-btn w-100" 
+                            <button class="currency-btn" 
                                     @onclick="() => ShowCurrencySelector(false)">
-                                <span class="flag-icon">@toCurrency.FlagIcon</span>
-                                <span class="currency-code">@toCurrency.Code</span>
-                                <span class="currency-name">@toCurrency.Name</span>
+                                <div class="d-flex align-items-center">
+                                    <span class="flag-icon">@toCurrency.FlagIcon</span>
+                                    <div>
+                                        <div class="currency-code">@toCurrency.Code</div>
+                                        <div class="currency-name">@toCurrency.Name</div>
+                                    </div>
+                                </div>
                             </button>
                         </div>
                     </div>
                     
                     <!-- Exchange Rate Display -->
-                    <div class="exchange-rate-display mt-4 p-3 rounded">
+                    <div class="exchange-rate-display">
                         <div class="d-flex justify-content-between align-items-center">
                             <span>Exchange Rate</span>
                             <span class="rate-value">@exchangeRate.Rate.ToString("F4")</span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mt-2">
+                        <div class="d-flex justify-content-between align-items-center mt-3">
                             <span>Updated</span>
                             <span class="timestamp">@exchangeRate.Timestamp.ToString("HH:mm:ss UTC")</span>
                         </div>
@@ -85,9 +93,9 @@
                     <!-- Loading Indicator -->
                     @if (isLoading)
                     {
-                        <div class="text-center mt-3">
+                        <div class="text-center mt-4">
                             <div class="loading-spinner"></div>
-                            <p class="mt-2">Calculating exchange rate...</p>
+                            <p class="mt-3">Calculating exchange rate...</p>
                         </div>
                     }
                 </div>
@@ -98,15 +106,15 @@
     <!-- Chart Section -->
     <div class="row justify-content-center mt-5">
         <div class="col-12 col-md-10">
-            <div class="chart-container glassmorphism p-4">
+            <div class="chart-container neumorphism">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3>Historical Exchange Rates</h3>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-outline-light btn-sm @(chartDays == 7 ? "active" : "")" @onclick="() => LoadHistoricalData(7)">7 Days</button>
-                        <button type="button" class="btn btn-outline-light btn-sm @(chartDays == 30 ? "active" : "")" @onclick="() => LoadHistoricalData(30)">30 Days</button>
+                        <button type="button" class="btn btn-sm @(chartDays == 7 ? "active" : "")" @onclick="() => LoadHistoricalData(7)">7 Days</button>
+                        <button type="button" class="btn btn-sm @(chartDays == 30 ? "active" : "")" @onclick="() => LoadHistoricalData(30)">30 Days</button>
                     </div>
                 </div>
-                <canvas id="exchangeRateChart" width="400" height="200"></canvas>
+                <canvas id="exchangeRateChart" width="400" height="250"></canvas>
             </div>
         </div>
     </div>
@@ -118,13 +126,13 @@
     <div class="modal-backdrop show"></div>
     <div class="modal currency-modal show d-block" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content glassmorphism">
+            <div class="modal-content neumorphism">
                 <div class="modal-header">
                     <h5 class="modal-title">Select Currency</h5>
                     <button type="button" class="btn-close btn-close-white" @onclick="CloseCurrencySelector"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="search-box mb-3">
+                    <div class="search-box mb-4">
                         <input type="text" class="form-control" placeholder="Search currencies..." @bind="searchTerm" @oninput="FilterCurrencies" />
                     </div>
                     <div class="currency-list">

@@ -21,3 +21,71 @@
         </div>
     </nav>
 </div>
+
+<style>
+    .navbar-brand {
+        font-size: 1.25rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 2px 4px rgba(76, 201, 240, 0.2);
+    }
+
+    .nav-link {
+        border-radius: var(--border-radius-sm);
+        transition: all 0.3s ease;
+        margin: 0.25rem 0.75rem;
+        padding: 0.75rem 1rem;
+        font-weight: 500;
+        color: var(--gray-text);
+        box-shadow: 
+            inset 2px 2px 4px var(--neumorphism-dark-shadow),
+            inset -2px -2px 4px var(--neumorphism-light-shadow);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-link:hover {
+        color: var(--light-text);
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateX(5px);
+        box-shadow: 
+            4px 4px 8px var(--neumorphism-dark-shadow),
+            -4px -4px 8px var(--neumorphism-light-shadow);
+    }
+
+    .nav-link.active {
+        background: linear-gradient(135deg, rgba(67, 97, 238, 0.2), rgba(60, 12, 163, 0.2));
+        color: var(--light-text);
+        border: 1px solid rgba(76, 201, 240, 0.3);
+        box-shadow: 
+            0 4px 12px rgba(67, 97, 238, 0.3),
+            inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+            inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-link.active:hover {
+        transform: translateX(5px) translateY(-2px);
+        box-shadow: 
+            0 6px 16px rgba(67, 97, 238, 0.4),
+            inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+            inset -2px -2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-link svg {
+        margin-right: 0.75rem;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .nav-item {
+        margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 640.98px) {
+        .nav-link {
+            margin: 0.25rem 1rem;
+        }
+    }
+</style>
