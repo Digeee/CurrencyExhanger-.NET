@@ -22,7 +22,8 @@ namespace CurrencyExchangeApp.Controllers
                 new Currency { Code = "CHF", Name = "Swiss Franc", Symbol = "Fr", FlagIcon = "🇨🇭" },
                 new Currency { Code = "CNY", Name = "Chinese Yuan", Symbol = "¥", FlagIcon = "🇨🇳" },
                 new Currency { Code = "SEK", Name = "Swedish Krona", Symbol = "kr", FlagIcon = "🇸🇪" },
-                new Currency { Code = "NZD", Name = "New Zealand Dollar", Symbol = "NZ$", FlagIcon = "🇳🇿" }
+                new Currency { Code = "NZD", Name = "New Zealand Dollar", Symbol = "NZ$", FlagIcon = "🇳🇿" },
+                new Currency { Code = "LKR", Name = "Sri Lankan Rupee", Symbol = "Rs", FlagIcon = "🇱🇰" }
             };
 
             return Ok(currencies);

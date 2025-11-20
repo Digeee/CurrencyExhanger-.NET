@@ -42,7 +42,8 @@ namespace CurrencyExchangeApp.Client.Services
                 new Currency { Code = "CHF", Name = "Swiss Franc", Symbol = "Fr", FlagIcon = "🇨🇭" },
                 new Currency { Code = "CNY", Name = "Chinese Yuan", Symbol = "¥", FlagIcon = "🇨🇳" },
                 new Currency { Code = "SEK", Name = "Swedish Krona", Symbol = "kr", FlagIcon = "🇸🇪" },
-                new Currency { Code = "NZD", Name = "New Zealand Dollar", Symbol = "NZ$", FlagIcon = "🇳🇿" }
+                new Currency { Code = "NZD", Name = "New Zealand Dollar", Symbol = "NZ$", FlagIcon = "🇳🇿" },
+                new Currency { Code = "LKR", Name = "Sri Lankan Rupee", Symbol = "Rs", FlagIcon = "🇱🇰" }
             };
         }
 
@@ -153,7 +154,8 @@ namespace CurrencyExchangeApp.Client.Services
                 new Currency { Code = "USD", Name = "US Dollar", Symbol = "$", FlagIcon = "🇺🇸" },
                 new Currency { Code = "EUR", Name = "Euro", Symbol = "€", FlagIcon = "🇪🇺" },
                 new Currency { Code = "GBP", Name = "British Pound", Symbol = "£", FlagIcon = "🇬🇧" },
-                new Currency { Code = "JPY", Name = "Japanese Yen", Symbol = "¥", FlagIcon = "🇯🇵" }
+                new Currency { Code = "JPY", Name = "Japanese Yen", Symbol = "¥", FlagIcon = "🇯🇵" },
+                new Currency { Code = "LKR", Name = "Sri Lankan Rupee", Symbol = "Rs", FlagIcon = "🇱🇰" }
             };
         }
     }

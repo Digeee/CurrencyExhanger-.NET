@@ -13,7 +13,7 @@ namespace CurrencyExchangeApp.Client.Services
     public class UserPreferences
     {
         public string DefaultFromCurrency { get; set; } = "USD";
-        public string DefaultToCurrency { get; set; } = "EUR";
+        public string DefaultToCurrency { get; set; } = "LKR"; // Set LKR as default for Sri Lankan users
         public string Theme { get; set; } = "light";
         public bool NotificationsEnabled { get; set; } = true;
         public List<string> FavoriteCurrencies { get; set; } = new List<string>();
