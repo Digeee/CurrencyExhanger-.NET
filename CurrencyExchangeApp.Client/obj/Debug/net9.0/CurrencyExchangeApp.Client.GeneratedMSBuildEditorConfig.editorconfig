@@ -28,8 +28,28 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VycmVuY3lDb252ZXJ0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/REBOOT/Downloads/.NET/CurrencyExchangeApp/CurrencyExchangeApp.Client/Pages/EconomicCalendar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWNvbm9taWNDYWxlbmRhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/REBOOT/Downloads/.NET/CurrencyExchangeApp/CurrencyExchangeApp.Client/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/REBOOT/Downloads/.NET/CurrencyExchangeApp/CurrencyExchangeApp.Client/Pages/MarketOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFya2V0T3ZlcnZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/REBOOT/Downloads/.NET/CurrencyExchangeApp/CurrencyExchangeApp.Client/Pages/News.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/REBOOT/Downloads/.NET/CurrencyExchangeApp/CurrencyExchangeApp.Client/Pages/Portfolio.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9ydGZvbGlvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/REBOOT/Downloads/.NET/CurrencyExchangeApp/CurrencyExchangeApp.Client/Pages/Settings.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/REBOOT/Downloads/.NET/CurrencyExchangeApp/CurrencyExchangeApp.Client/_Imports.razor]

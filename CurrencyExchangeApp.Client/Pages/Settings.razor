@@ -1,0 +1,175 @@
+@page "/settings"
+@rendermode InteractiveWebAssembly
+@inject IUserPreferencesService UserPreferencesService
+@using CurrencyExchangeApp.Client.Services
+
+<PageTitle>Settings</PageTitle>
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <h1>⚙️ Settings</h1>
+            <p class="text-muted">Customize your Global Finance Pro experience</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Preferences</h5>
+                </div>
+                <div class="card-body">
+                    <form @onsubmit="SaveSettings">
+                        <div class="mb-4">
+                            <h6>Default Currencies</h6>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">From Currency</label>
+                                    <select class="form-select" @bind="preferences.DefaultFromCurrency">
+                                        <option value="USD">USD - US Dollar</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                        <option value="GBP">GBP - British Pound</option>
+                                        <option value="JPY">JPY - Japanese Yen</option>
+                                        <option value="CAD">CAD - Canadian Dollar</option>
+                                        <option value="AUD">AUD - Australian Dollar</option>
+                                        <option value="CHF">CHF - Swiss Franc</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">To Currency</label>
+                                    <select class="form-select" @bind="preferences.DefaultToCurrency">
+                                        <option value="USD">USD - US Dollar</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                        <option value="GBP">GBP - British Pound</option>
+                                        <option value="JPY">JPY - Japanese Yen</option>
+                                        <option value="CAD">CAD - Canadian Dollar</option>
+                                        <option value="AUD">AUD - Australian Dollar</option>
+                                        <option value="CHF">CHF - Swiss Franc</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6>Appearance</h6>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="themeSwitch" @bind="preferences.NotificationsEnabled">
+                                <label class="form-check-label" for="themeSwitch">Enable Notifications</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6>Chart Preferences</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label">Default Chart Period</label>
+                                    <select class="form-select" @bind="preferences.ChartPeriod">
+                                        <option value="7D">7 Days</option>
+                                        <option value="1M">1 Month</option>
+                                        <option value="3M">3 Months</option>
+                                        <option value="1Y">1 Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-outline-secondary me-2" @onclick="ResetSettings">
+                                Reset to Defaults
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Account</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <h6 class="mb-0">John Doe</h6>
+                            <small class="text-muted">john.doe@example.com</small>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm">
+                            Edit Profile
+                        </button>
+                    </div>
+                    <hr>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-danger">
+                            <i class="bi bi-box-arrow-right me-2"></i>
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-primary" @onclick="ClearCache">
+                            <i class="bi bi-trash me-2"></i>
+                            Clear Cache
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <i class="bi bi-download me-2"></i>
+                            Export Data
+                        </button>
+                        <button class="btn btn-outline-info">
+                            <i class="bi bi-question-circle me-2"></i>
+                            Help & Support
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0">About</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Global Finance Pro</strong></p>
+                    <p class="text-muted">Version 1.0.0</p>
+                    <p class="mb-0">© 2025 Global Finance Pro. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private UserPreferences preferences = new();
+
+    protected override void OnInitialized()
+    {
+        preferences = UserPreferencesService.GetPreferences();
+    }
+
+    private void SaveSettings()
+    {
+        UserPreferencesService.SavePreferences(preferences);
+        // Show success message
+    }
+
+    private void ResetSettings()
+    {
+        preferences = new UserPreferences();
+        StateHasChanged();
+    }
+
+    private void ClearCache()
+    {
+        // Implementation for clearing cache
+    }
+}

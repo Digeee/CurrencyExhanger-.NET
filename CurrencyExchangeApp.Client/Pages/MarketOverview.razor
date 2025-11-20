@@ -1,0 +1,287 @@
+@page "/market"
+@rendermode InteractiveWebAssembly
+@inject IJSRuntime JSRuntime
+@using CurrencyExchangeApp.Client.Models
+@using CurrencyExchangeApp.Client.Services
+@using Microsoft.JSInterop
+
+<PageTitle>Market Overview</PageTitle>
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1>📈 Global Market Overview</h1>
+            <p class="text-muted">Real-time financial market data and currency performance</p>
+        </div>
+    </div>
+
+    <!-- Market Summary Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">USD Index</h5>
+                        <span class="badge bg-primary">DXY</span>
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="mb-1">102.45</h3>
+                        <p class="text-success mb-0">
+                            <i class="bi bi-arrow-up"></i> +0.25% (24h)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Gold</h5>
+                        <span class="badge bg-warning">XAU</span>
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="mb-1">$1,985.30</h3>
+                        <p class="text-danger mb-0">
+                            <i class="bi bi-arrow-down"></i> -0.12% (24h)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Oil (WTI)</h5>
+                        <span class="badge bg-dark">CL</span>
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="mb-1">$78.42</h3>
+                        <p class="text-success mb-0">
+                            <i class="bi bi-arrow-up"></i> +1.35% (24h)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">S&P 500</h5>
+                        <span class="badge bg-success">SPX</span>
+                    </div>
+                    <div class="mt-3">
+                        <h3 class="mb-1">4,567.25</h3>
+                        <p class="text-success mb-0">
+                            <i class="bi bi-arrow-up"></i> +0.78% (24h)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Currency Performance Table -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Major Currency Performance (24h)</h5>
+                        <div>
+                            <button class="btn btn-sm btn-outline-primary me-2">
+                                <i class="bi bi-arrow-down-up"></i> Sort
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary">
+                                <i class="bi bi-arrow-clockwise"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Currency</th>
+                                    <th>Symbol</th>
+                                    <th>Current Rate</th>
+                                    <th>24h Change</th>
+                                    <th>7d Change</th>
+                                    <th>Market Cap</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇺🇸</span>
+                                            <div>
+                                                <div>US Dollar</div>
+                                                <small class="text-muted">USD</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>USD</td>
+                                    <td>1.0000</td>
+                                    <td class="text-success">+0.00%</td>
+                                    <td class="text-success">+0.00%</td>
+                                    <td>$-</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇪🇺</span>
+                                            <div>
+                                                <div>Euro</div>
+                                                <small class="text-muted">EUR</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>EUR</td>
+                                    <td>1.0824</td>
+                                    <td class="text-success">+0.15%</td>
+                                    <td class="text-danger">-0.25%</td>
+                                    <td>€14.2T</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇬🇧</span>
+                                            <div>
+                                                <div>British Pound</div>
+                                                <small class="text-muted">GBP</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>GBP</td>
+                                    <td>1.2658</td>
+                                    <td class="text-danger">-0.32%</td>
+                                    <td class="text-success">+0.18%</td>
+                                    <td>£2.9T</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇯🇵</span>
+                                            <div>
+                                                <div>Japanese Yen</div>
+                                                <small class="text-muted">JPY</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>JPY</td>
+                                    <td>149.65</td>
+                                    <td class="text-success">+0.45%</td>
+                                    <td class="text-danger">-0.12%</td>
+                                    <td>¥1.2T</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇨🇦</span>
+                                            <div>
+                                                <div>Canadian Dollar</div>
+                                                <small class="text-muted">CAD</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>CAD</td>
+                                    <td>1.3521</td>
+                                    <td class="text-success">+0.08%</td>
+                                    <td class="text-success">+0.35%</td>
+                                    <td>C$2.3T</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Market Charts -->
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">USD Index Trend</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="usdIndexChart" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Top Movers</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-bold">NZD/USD</div>
+                                <small class="text-muted">New Zealand Dollar</small>
+                            </div>
+                            <span class="badge bg-success">+0.85%</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-bold">AUD/USD</div>
+                                <small class="text-muted">Australian Dollar</small>
+                            </div>
+                            <span class="badge bg-success">+0.62%</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-bold">USD/JPY</div>
+                                <small class="text-muted">US Dollar vs Yen</small>
+                            </div>
+                            <span class="badge bg-danger">-0.45%</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-bold">EUR/USD</div>
+                                <small class="text-muted">Euro vs Dollar</small>
+                            </div>
+                            <span class="badge bg-success">+0.15%</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-bold">GBP/USD</div>
+                                <small class="text-muted">Pound vs Dollar</small>
+                            </div>
+                            <span class="badge bg-danger">-0.32%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await InitializeCharts();
+        }
+    }
+
+    private async Task InitializeCharts()
+    {
+        // Initialize USD Index Chart
+        var usdIndexLabels = new[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
+        var usdIndexData = new[] { 101.8, 102.1, 101.9, 102.3, 102.5, 102.2, 102.45 };
+        
+        await JSRuntime.InvokeVoidAsync("marketChartInterop.initializeUsdIndexChart", "usdIndexChart", usdIndexLabels, usdIndexData);
+    }
+}

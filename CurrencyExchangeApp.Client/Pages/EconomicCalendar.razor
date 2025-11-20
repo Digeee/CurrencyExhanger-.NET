@@ -1,0 +1,297 @@
+@page "/calendar"
+@rendermode InteractiveWebAssembly
+@using CurrencyExchangeApp.Client.Models
+
+<PageTitle>Economic Calendar</PageTitle>
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1>📅 Economic Calendar</h1>
+            <p class="text-muted">Important economic events and indicators affecting financial markets</p>
+        </div>
+    </div>
+
+    <!-- Calendar Controls -->
+    <div class="row mb-4">
+        <div class="col-md-6 mb-3 mb-md-0">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-outline-primary me-2">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <h5 class="mb-0 mx-2">November 18-24, 2025</h5>
+                        <button class="btn btn-outline-primary ms-2">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-sm btn-primary">All</button>
+                        <button class="btn btn-sm btn-outline-secondary">High Impact</button>
+                        <button class="btn btn-sm btn-outline-secondary">Medium</button>
+                        <button class="btn btn-sm btn-outline-secondary">Low</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar View -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">This Week's Events</h5>
+                        <div>
+                            <button class="btn btn-sm btn-outline-primary me-2">
+                                <i class="bi bi-download"></i> Export
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary">
+                                <i class="bi bi-bell"></i> Alerts
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Date & Time</th>
+                                    <th>Country</th>
+                                    <th>Event</th>
+                                    <th>Impact</th>
+                                    <th>Actual</th>
+                                    <th>Forecast</th>
+                                    <th>Previous</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>Nov 18, 2025</div>
+                                        <small class="text-muted">08:30 GMT</small>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇺🇸</span>
+                                            <span>USA</span>
+                                        </div>
+                                    </td>
+                                    <td>Building Permits (MoM)</td>
+                                    <td>
+                                        <span class="badge bg-warning">Medium</span>
+                                    </td>
+                                    <td>-</td>
+                                    <td>0.2%</td>
+                                    <td>0.1%</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <div>Nov 18, 2025</div>
+                                        <small class="text-muted">10:00 GMT</small>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇺🇸</span>
+                                            <span>USA</span>
+                                        </div>
+                                    </td>
+                                    <td>Fed Chair Powell Speaks</td>
+                                    <td>
+                                        <span class="badge bg-danger">High</span>
+                                    </td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <div>Nov 19, 2025</div>
+                                        <small class="text-muted">07:00 GMT</small>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇩🇪</span>
+                                            <span>Germany</span>
+                                        </div>
+                                    </td>
+                                    <td>ZEW Economic Sentiment</td>
+                                    <td>
+                                        <span class="badge bg-warning">Medium</span>
+                                    </td>
+                                    <td>-</td>
+                                    <td>-10.0</td>
+                                    <td>-15.2</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <div>Nov 19, 2025</div>
+                                        <small class="text-muted">13:30 GMT</small>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇺🇸</span>
+                                            <span>USA</span>
+                                        </div>
+                                    </td>
+                                    <td>Housing Starts</td>
+                                    <td>
+                                        <span class="badge bg-danger">High</span>
+                                    </td>
+                                    <td>-</td>
+                                    <td>1.420M</td>
+                                    <td>1.473M</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <div>Nov 20, 2025</div>
+                                        <small class="text-muted">07:00 GMT</small>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇬🇧</span>
+                                            <span>UK</span>
+                                        </div>
+                                    </td>
+                                    <td>GDP (QoQ) Preliminary</td>
+                                    <td>
+                                        <span class="badge bg-danger">High</span>
+                                    </td>
+                                    <td>-</td>
+                                    <td>0.4%</td>
+                                    <td>0.5%</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <div>Nov 21, 2025</div>
+                                        <small class="text-muted">13:30 GMT</small>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇺🇸</span>
+                                            <span>USA</span>
+                                        </div>
+                                    </td>
+                                    <td>Durable Goods Orders</td>
+                                    <td>
+                                        <span class="badge bg-warning">Medium</span>
+                                    </td>
+                                    <td>-</td>
+                                    <td>0.5%</td>
+                                    <td>0.9%</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <div>Nov 22, 2025</div>
+                                        <small class="text-muted">08:00 GMT</small>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="flag-icon me-2">🇨🇦</span>
+                                            <span>Canada</span>
+                                        </div>
+                                    </td>
+                                    <td>CPI (YoY)</td>
+                                    <td>
+                                        <span class="badge bg-warning">Medium</span>
+                                    </td>
+                                    <td>-</td>
+                                    <td>3.1%</td>
+                                    <td>3.2%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events Preview -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Today's Key Events</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-3">
+                            <div class="card border-start border-4 border-primary h-100">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="card-title mb-1">Fed Chair Powell Speaks</h6>
+                                        <span class="badge bg-danger">High</span>
+                                    </div>
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            <i class="bi bi-clock"></i> 10:00 GMT | 
+                                            <span class="flag-icon">🇺🇸</span> USA
+                                        </small>
+                                    </p>
+                                    <p class="mb-0">Federal Reserve Chair Jerome Powell will speak at the Economic Club of New York about monetary policy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 mb-3">
+                            <div class="card border-start border-4 border-warning h-100">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="card-title mb-1">Building Permits</h6>
+                                        <span class="badge bg-warning">Medium</span>
+                                    </div>
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            <i class="bi bi-clock"></i> 08:30 GMT | 
+                                            <span class="flag-icon">🇺🇸</span> USA
+                                        </small>
+                                    </p>
+                                    <p class="mb-0">Monthly change in the number of new residential building permits issued by the government.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 mb-3">
+                            <div class="card border-start border-4 border-success h-100">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="card-title mb-1">Crude Oil Inventories</h6>
+                                        <span class="badge bg-success">Low</span>
+                                    </div>
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            <i class="bi bi-clock"></i> 15:30 GMT | 
+                                            <span class="flag-icon">🇺🇸</span> USA
+                                        </small>
+                                    </p>
+                                    <p class="mb-0">Weekly change in the number of barrels of crude oil held in inventory by the U.S. Energy Information Administration.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    // Economic calendar functionality would be implemented here
+}

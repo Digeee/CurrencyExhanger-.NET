@@ -1,85 +1,140 @@
-window.chartInterop = {
-    chart: null,
-    
-    initializeChart: function (canvasId, labels, data) {
-        const ctx = document.getElementById(canvasId).getContext('2d');
+window.marketChartInterop = {
+    initializeUsdIndexChart: function (elementId, labels, data) {
+        const ctx = document.getElementById(elementId).getContext('2d');
         
-        // Destroy existing chart if it exists
-        if (this.chart) {
-            this.chart.destroy();
-        }
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'USD Index',
+                    data: data,
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#2563eb',
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    }
+};
+
+window.portfolioChartInterop = {
+    initializePortfolioChart: function (elementId, labels, data) {
+        const ctx = document.getElementById(elementId).getContext('2d');
         
-        // Create new chart
-        this.chart = new Chart(ctx, {
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Portfolio Value',
+                    data: data,
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#10b981',
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    }
+};
+
+window.exchangeRateChartInterop = {
+    initializeExchangeRateChart: function (elementId, labels, data) {
+        const ctx = document.getElementById(elementId).getContext('2d');
+        
+        new Chart(ctx, {
             type: 'line',
             data: {
                 labels: labels,
                 datasets: [{
                     label: 'Exchange Rate',
                     data: data,
-                    borderColor: '#4cc9f0',
-                    backgroundColor: 'rgba(76, 201, 240, 0.1)',
-                    borderWidth: 3,
-                    pointBackgroundColor: '#4361ee',
+                    borderColor: '#8b5cf6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#8b5cf6',
                     pointRadius: 4,
                     pointHoverRadius: 6,
                     fill: true,
-                    tension: 0.4
+                    tension: 0.3
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                animation: {
-                    duration: 1000,
-                    easing: 'easeOutQuart'
-                },
-                scales: {
-                    x: {
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        },
-                        ticks: {
-                            color: '#94a3b8'
-                        }
-                    },
-                    y: {
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        },
-                        ticks: {
-                            color: '#94a3b8'
-                        }
-                    }
-                },
                 plugins: {
                     legend: {
-                        labels: {
-                            color: '#f1f5f9',
-                            font: {
-                                size: 14
-                            }
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
                         }
                     },
-                    tooltip: {
-                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
-                        titleColor: '#4cc9f0',
-                        bodyColor: '#f1f5f9',
-                        borderColor: 'rgba(255, 255, 255, 0.18)',
-                        borderWidth: 1,
-                        padding: 12,
-                        displayColors: false
+                    x: {
+                        grid: {
+                            display: false
+                        }
                     }
                 }
             }
         });
-    },
-    
-    updateChart: function (labels, data) {
-        if (this.chart) {
-            this.chart.data.labels = labels;
-            this.chart.data.datasets[0].data = data;
-            this.chart.update('easeOutQuart', 750);
-        }
     }
 };

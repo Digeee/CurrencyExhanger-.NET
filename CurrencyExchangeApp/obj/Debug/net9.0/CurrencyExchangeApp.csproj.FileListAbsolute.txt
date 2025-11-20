@@ -60,8 +60,6 @@ C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\scopedcss\bundle\CurrencyExchangeApp.styles.css
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\scopedcss\projectbundle\CurrencyExchangeApp.bundle.scp.css
-C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\compressed\h55b546mx8-ejnz33ht7f.gz
-C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\compressed\za3nebrqwr-ynooozpjgo.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\compressed\ewq5cgz0ej-bqjiyaj88i.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\compressed\4dxbeebdpg-c2jlpeoesf.gz
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\compressed\ff4e6qsdnw-erw9l3u2r3.gz
@@ -118,3 +116,5 @@ C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\CurrencyExchangeApp.pdb
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\CurrencyExchangeApp.genruntimeconfig.cache
 C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\ref\CurrencyExchangeApp.dll
+C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\compressed\h55b546mx8-yq8zwfukq4.gz
+C:\Users\REBOOT\Downloads\.NET\CurrencyExchangeApp\CurrencyExchangeApp\obj\Debug\net9.0\compressed\za3nebrqwr-qsvc5i7tcp.gz

@@ -1,141 +1,124 @@
 @page "/converter"
 @rendermode InteractiveWebAssembly
-@inject ICurrencyExchangeService CurrencyService
 @inject IJSRuntime JSRuntime
+@inject IUserPreferencesService UserPreferencesService
 @using CurrencyExchangeApp.Client.Models
 @using CurrencyExchangeApp.Client.Services
 @using Microsoft.JSInterop
 
 <PageTitle>Currency Converter</PageTitle>
 
-<div class="container-fluid currency-converter">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6">
-            <div class="converter-card neumorphism">
-                <h1 class="mb-4">💱 Currency Converter</h1>
+<div class="currency-converter">
+    <div class="container">
+        <div class="converter-card card">
+            <h1>💱 Currency Converter</h1>
+            
+            <!-- From Currency -->
+            <div class="currency-input-group">
+                <label for="fromAmount" class="form-label">From</label>
+                <div class="input-group mb-3">
+                    <input type="number" 
+                           class="form-control form-control-lg" 
+                           id="fromAmount" 
+                           placeholder="Enter amount" 
+                           @bind="fromAmount" 
+                           @oninput="OnAmountChanged" />
+                    <span class="input-group-text currency-symbol">@fromCurrency.Symbol</span>
+                </div>
                 
-                <div class="conversion-section">
-                    <!-- From Currency -->
-                    <div class="currency-input-group">
-                        <label for="fromAmount" class="form-label">From</label>
-                        <div class="input-group mb-3">
-                            <input type="number" 
-                                   class="form-control form-control-lg" 
-                                   id="fromAmount" 
-                                   placeholder="Enter amount" 
-                                   @bind="fromAmount" 
-                                   @oninput="OnAmountChanged" />
-                            <span class="input-group-text currency-symbol">@fromCurrency.Symbol</span>
+                <div class="currency-selector">
+                    <button class="currency-btn" 
+                            @onclick="() => ShowCurrencySelector(true)">
+                        <div class="d-flex align-items-center">
+                            <span class="flag-icon">@fromCurrency.FlagIcon</span>
+                            <div>
+                                <div class="currency-code">@fromCurrency.Code</div>
+                                <div class="currency-name">@fromCurrency.Name</div>
+                            </div>
                         </div>
-                        
-                        <div class="currency-selector">
-                            <button class="currency-btn" 
-                                    @onclick="() => ShowCurrencySelector(true)">
-                                <div class="d-flex align-items-center">
-                                    <span class="flag-icon">@fromCurrency.FlagIcon</span>
-                                    <div>
-                                        <div class="currency-code">@fromCurrency.Code</div>
-                                        <div class="currency-name">@fromCurrency.Name</div>
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Swap Button -->
-                    <div class="swap-container">
-                        <button class="btn-swap" @onclick="SwapCurrencies">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/>
-                            </svg>
-                        </button>
-                    </div>
-                    
-                    <!-- To Currency -->
-                    <div class="currency-input-group">
-                        <label for="toAmount" class="form-label">To</label>
-                        <div class="input-group mb-3">
-                            <input type="text" 
-                                   class="form-control form-control-lg" 
-                                   id="toAmount" 
-                                   placeholder="Converted amount" 
-                                   value="@toAmount.ToString("F2")" 
-                                   disabled />
-                            <span class="input-group-text currency-symbol">@toCurrency.Symbol</span>
-                        </div>
-                        
-                        <div class="currency-selector">
-                            <button class="currency-btn" 
-                                    @onclick="() => ShowCurrencySelector(false)">
-                                <div class="d-flex align-items-center">
-                                    <span class="flag-icon">@toCurrency.FlagIcon</span>
-                                    <div>
-                                        <div class="currency-code">@toCurrency.Code</div>
-                                        <div class="currency-name">@toCurrency.Name</div>
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Exchange Rate Display -->
-                    <div class="exchange-rate-display">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span>Exchange Rate</span>
-                            <span class="rate-value">@exchangeRate.Rate.ToString("F4")</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span>Updated</span>
-                            <span class="timestamp">@exchangeRate.Timestamp.ToString("HH:mm:ss UTC")</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Loading Indicator -->
-                    @if (isLoading)
-                    {
-                        <div class="text-center mt-4">
-                            <div class="loading-spinner"></div>
-                            <p class="mt-3">Calculating exchange rate...</p>
-                        </div>
-                    }
+                    </button>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <!-- Chart Section -->
-    <div class="row justify-content-center mt-5">
-        <div class="col-12 col-md-10">
-            <div class="chart-container neumorphism">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3>Historical Exchange Rates</h3>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-sm @(chartDays == 7 ? "active" : "")" @onclick="() => LoadHistoricalData(7)">7 Days</button>
-                        <button type="button" class="btn btn-sm @(chartDays == 30 ? "active" : "")" @onclick="() => LoadHistoricalData(30)">30 Days</button>
+            
+            <!-- Swap Button -->
+            <div class="text-center">
+                <button class="btn-swap" @onclick="SwapCurrencies">
+                    <i class="bi bi-arrow-down-up"></i>
+                </button>
+            </div>
+            
+            <!-- To Currency -->
+            <div class="currency-input-group">
+                <label for="toAmount" class="form-label">To</label>
+                <div class="input-group mb-3">
+                    <input type="number" 
+                           class="form-control form-control-lg" 
+                           id="toAmount" 
+                           placeholder="Converted amount" 
+                           @bind="toAmount" 
+                           readonly />
+                    <span class="input-group-text currency-symbol">@toCurrency.Symbol</span>
+                </div>
+                
+                <div class="currency-selector">
+                    <button class="currency-btn" 
+                            @onclick="() => ShowCurrencySelector(false)">
+                        <div class="d-flex align-items-center">
+                            <span class="flag-icon">@toCurrency.FlagIcon</span>
+                            <div>
+                                <div class="currency-code">@toCurrency.Code</div>
+                                <div class="currency-name">@toCurrency.Name</div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Exchange Rate Display -->
+            <div class="exchange-rate-display">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="rate-label">Exchange Rate</div>
+                        <div class="rate-value">1 @fromCurrency.Code = @exchangeRate @toCurrency.Code</div>
+                    </div>
+                    <div class="timestamp">
+                        <small>Last updated: @DateTime.Now.ToString("HH:mm:ss")</small>
                     </div>
                 </div>
-                <canvas id="exchangeRateChart" width="400" height="250"></canvas>
+            </div>
+            
+            <!-- Chart Section -->
+            <div class="chart-container card mt-4">
+                <h3>📊 @fromCurrency.Code/@toCurrency.Code Historical Rates</h3>
+                <div class="d-flex mb-3">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-primary btn-sm">7D</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm">1M</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm">3M</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm">1Y</button>
+                    </div>
+                </div>
+                <canvas id="exchangeRateChart" height="300"></canvas>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Currency Selector Modal -->
-@if (showCurrencySelector)
-{
-    <div class="modal-backdrop show"></div>
-    <div class="modal currency-modal show d-block" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content neumorphism">
-                <div class="modal-header">
-                    <h5 class="modal-title">Select Currency</h5>
-                    <button type="button" class="btn-close btn-close-white" @onclick="CloseCurrencySelector"></button>
+<div class="modal fade currency-modal" id="currencySelectorModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Select Currency</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="search-box mb-3">
+                    <input type="text" class="form-control" placeholder="Search currencies..." @bind="searchTerm" @oninput="FilterCurrencies" />
                 </div>
-                <div class="modal-body">
-                    <div class="search-box mb-4">
-                        <input type="text" class="form-control" placeholder="Search currencies..." @bind="searchTerm" @oninput="FilterCurrencies" />
-                    </div>
-                    <div class="currency-list">
+                <div class="currency-list">
+                    @if (filteredCurrencies != null)
+                    {
                         @foreach (var currency in filteredCurrencies)
                         {
                             <div class="currency-item" @onclick="() => SelectCurrency(currency)">
@@ -143,145 +126,151 @@
                                     <span class="flag-icon me-3">@currency.FlagIcon</span>
                                     <div>
                                         <div class="currency-code">@currency.Code</div>
-                                        <div class="currency-name-small">@currency.Name</div>
+                                        <div class="currency-name">@currency.Name</div>
                                     </div>
                                 </div>
                             </div>
                         }
-                    </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
-}
+</div>
 
 @code {
+    [Inject]
+    public ICurrencyExchangeService? CurrencyService { get; set; }
+    
     private decimal fromAmount = 1;
-    private decimal toAmount = 0;
-    private Currency fromCurrency = new Currency { Code = "USD", Name = "US Dollar", Symbol = "$", FlagIcon = "🇺🇸" };
-    private Currency toCurrency = new Currency { Code = "EUR", Name = "Euro", Symbol = "€", FlagIcon = "🇪🇺" };
-    private ExchangeRate exchangeRate = new ExchangeRate();
-    private List<Currency> availableCurrencies = new List<Currency>();
-    private List<Currency> filteredCurrencies = new List<Currency>();
+    private decimal toAmount;
+    private Currency fromCurrency = new() { Code = "USD", Name = "US Dollar", Symbol = "$", FlagIcon = "🇺🇸" };
+    private Currency toCurrency = new() { Code = "EUR", Name = "Euro", Symbol = "€", FlagIcon = "🇪🇺" };
+    private decimal exchangeRate = 1;
+    private List<Currency> currencies = new();
+    private List<Currency> filteredCurrencies = new();
     private string searchTerm = "";
-    private bool showCurrencySelector = false;
     private bool isSelectingFromCurrency = true;
-    private bool isLoading = false;
-    private int chartDays = 7;
-    private List<HistoricalExchangeRate> historicalRates = new List<HistoricalExchangeRate>();
-
+    
     protected override async Task OnInitializedAsync()
     {
-        await LoadAvailableCurrencies();
-        await UpdateExchangeRate();
-        await ConvertCurrency();
-        await LoadHistoricalData(chartDays);
+        // Load user preferences
+        var preferences = UserPreferencesService.GetPreferences();
+        fromCurrency = GetCurrencyByCode(preferences.DefaultFromCurrency) ?? fromCurrency;
+        toCurrency = GetCurrencyByCode(preferences.DefaultToCurrency) ?? toCurrency;
+        
+        await LoadCurrenciesAsync();
+        await ConvertCurrencyAsync();
+        await LoadHistoricalDataAsync();
     }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    
+    private async Task LoadCurrenciesAsync()
     {
-        if (firstRender)
-        {
-            await InitializeChart();
-        }
-        await UpdateChart();
-    }
-
-    private async Task LoadAvailableCurrencies()
-    {
+        if (CurrencyService == null) return;
+        
         try
         {
-            availableCurrencies = await CurrencyService.GetAvailableCurrenciesAsync();
-            filteredCurrencies = new List<Currency>(availableCurrencies);
+            currencies = await CurrencyService.GetAvailableCurrenciesAsync();
+            filteredCurrencies = new List<Currency>(currencies);
         }
         catch (Exception ex)
         {
             // Handle error
         }
     }
-
-    private async Task ConvertCurrency()
+    
+    private async Task ConvertCurrencyAsync()
     {
-        if (fromAmount <= 0) return;
-
+        if (CurrencyService == null) return;
+        
         try
         {
-            isLoading = true;
-            StateHasChanged();
+            var result = await CurrencyService.ConvertCurrencyAsync(fromAmount, fromCurrency.Code, toCurrency.Code);
+            toAmount = result;
             
-            toAmount = await CurrencyService.ConvertCurrencyAsync(fromAmount, fromCurrency.Code, toCurrency.Code);
+            var rate = await CurrencyService.GetExchangeRateAsync(fromCurrency.Code, toCurrency.Code);
+            exchangeRate = rate.Rate;
         }
         catch (Exception ex)
         {
             // Handle error
         }
-        finally
-        {
-            isLoading = false;
-            StateHasChanged();
-        }
     }
-
-    private async Task UpdateExchangeRate()
+    
+    private async Task LoadHistoricalDataAsync()
     {
+        if (CurrencyService == null) return;
+        
         try
         {
-            exchangeRate = await CurrencyService.GetExchangeRateAsync(fromCurrency.Code, toCurrency.Code);
+            var historicalRates = await CurrencyService.GetHistoricalRatesAsync(fromCurrency.Code, toCurrency.Code, 7);
+            var labels = historicalRates.Select(r => r.Date.ToString("MMM dd")).ToArray();
+            var data = historicalRates.Select(r => (double)r.Rate).ToArray();
+            
+            await JSRuntime.InvokeVoidAsync("exchangeRateChartInterop.initializeExchangeRateChart", 
+                "exchangeRateChart", labels, data);
         }
         catch (Exception ex)
         {
             // Handle error
         }
     }
-
+    
     private async Task OnAmountChanged(ChangeEventArgs e)
     {
-        if (decimal.TryParse(e.Value?.ToString(), out var amount))
+        if (decimal.TryParse(e.Value?.ToString() ?? "0", out var amount))
         {
             fromAmount = amount;
-            await ConvertCurrency();
+            await ConvertCurrencyAsync();
         }
     }
-
+    
     private async Task SwapCurrencies()
     {
         var temp = fromCurrency;
         fromCurrency = toCurrency;
         toCurrency = temp;
-        
-        await UpdateExchangeRate();
-        await ConvertCurrency();
-        await LoadHistoricalData(chartDays);
+        await ConvertCurrencyAsync();
+        await LoadHistoricalDataAsync();
     }
-
-    private void ShowCurrencySelector(bool selectingFrom)
+    
+    private async Task ShowCurrencySelector(bool isFrom)
     {
-        isSelectingFromCurrency = selectingFrom;
+        isSelectingFromCurrency = isFrom;
         searchTerm = "";
-        FilterCurrencies();
-        showCurrencySelector = true;
+        filteredCurrencies = new List<Currency>(currencies);
+        
+        // Use JS interop to show the modal
+        await InvokeAsync(async () => {
+            await Task.Delay(100); // Small delay to ensure DOM is ready
+            try
+            {
+                var modal = await JSRuntime.InvokeAsync<IJSObjectReference>("bootstrap.Modal.getOrCreateInstance", "#currencySelectorModal");
+                await modal.InvokeVoidAsync("show");
+            }
+            catch
+            {
+                // Handle error
+            }
+        });
     }
-
-    private void CloseCurrencySelector()
+    
+    private void FilterCurrencies(ChangeEventArgs e)
     {
-        showCurrencySelector = false;
-    }
-
-    private void FilterCurrencies()
-    {
-        if (string.IsNullOrWhiteSpace(searchTerm))
+        searchTerm = e.Value?.ToString()?.ToLower() ?? "";
+        if (string.IsNullOrEmpty(searchTerm))
         {
-            filteredCurrencies = new List<Currency>(availableCurrencies);
+            filteredCurrencies = new List<Currency>(currencies);
         }
         else
         {
-            filteredCurrencies = availableCurrencies
-                .Where(c => c.Code.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
-                           c.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+            filteredCurrencies = currencies
+                .Where(c => c.Code.ToLower().Contains(searchTerm) || 
+                           c.Name.ToLower().Contains(searchTerm))
                 .ToList();
         }
     }
-
+    
     private async Task SelectCurrency(Currency currency)
     {
         if (isSelectingFromCurrency)
@@ -292,46 +281,26 @@
         {
             toCurrency = currency;
         }
-
-        CloseCurrencySelector();
-        await UpdateExchangeRate();
-        await ConvertCurrency();
-        await LoadHistoricalData(chartDays);
+        
+        // Use JS interop to hide the modal
+        await InvokeAsync(async () => {
+            try
+            {
+                var modal = await JSRuntime.InvokeAsync<IJSObjectReference>("bootstrap.Modal.getInstance", "#currencySelectorModal");
+                await modal.InvokeVoidAsync("hide");
+            }
+            catch
+            {
+                // Handle error
+            }
+        });
+        
+        await ConvertCurrencyAsync();
+        await LoadHistoricalDataAsync();
     }
-
-    private async Task LoadHistoricalData(int days)
+    
+    private Currency? GetCurrencyByCode(string code)
     {
-        chartDays = days;
-        try
-        {
-            historicalRates = await CurrencyService.GetHistoricalRatesAsync(fromCurrency.Code, toCurrency.Code, days);
-            StateHasChanged();
-        }
-        catch (Exception ex)
-        {
-            // Handle error
-        }
-    }
-
-    private async Task InitializeChart()
-    {
-        if (historicalRates.Any())
-        {
-            var labels = historicalRates.Select(r => r.Date.ToString("MMM dd")).ToArray();
-            var data = historicalRates.Select(r => (double)r.Rate).ToArray();
-            
-            await JSRuntime.InvokeVoidAsync("chartInterop.initializeChart", "exchangeRateChart", labels, data);
-        }
-    }
-
-    private async Task UpdateChart()
-    {
-        if (historicalRates.Any())
-        {
-            var labels = historicalRates.Select(r => r.Date.ToString("MMM dd")).ToArray();
-            var data = historicalRates.Select(r => (double)r.Rate).ToArray();
-            
-            await JSRuntime.InvokeVoidAsync("chartInterop.updateChart", labels, data);
-        }
+        return currencies.FirstOrDefault(c => c.Code == code);
     }
 }

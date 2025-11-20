@@ -8,11 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
+// Add controllers
+builder.Services.AddControllers();
+
 // Register HTTP client for server-side operations
 builder.Services.AddHttpClient();
 
 // Register client services for server-side prerendering
 builder.Services.AddScoped<ICurrencyExchangeService, CurrencyExchangeApp.Client.Services.ExchangeRateApiService>();
+builder.Services.AddScoped<ILocalStorageService, LocalStorageService>();
+builder.Services.AddScoped<IUserPreferencesService, UserPreferencesService>();
 
 var app = builder.Build();
 
@@ -36,5 +41,8 @@ app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(CurrencyExchangeApp.Client._Imports).Assembly);
+
+// Map controllers
+app.MapControllers();
 
 app.Run();

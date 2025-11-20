@@ -1,0 +1,193 @@
+@page "/news"
+@rendermode InteractiveWebAssembly
+@using CurrencyExchangeApp.Client.Models
+
+<PageTitle>Financial News</PageTitle>
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1>📰 Financial News & Analysis</h1>
+            <p class="text-muted">Stay updated with the latest market news and economic insights</p>
+        </div>
+    </div>
+
+    <!-- News Filters -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-sm btn-primary">All</button>
+                        <button class="btn btn-sm btn-outline-secondary">Forex</button>
+                        <button class="btn btn-sm btn-outline-secondary">Commodities</button>
+                        <button class="btn btn-sm btn-outline-secondary">Stocks</button>
+                        <button class="btn btn-sm btn-outline-secondary">Cryptocurrency</button>
+                        <button class="btn btn-sm btn-outline-secondary">Economic Indicators</button>
+                        <button class="btn btn-sm btn-outline-secondary">Central Banks</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured News -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                             class="img-fluid rounded-start h-100" 
+                             style="object-fit: cover;" 
+                             alt="Featured News">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <span class="badge bg-primary">FEATURED</span>
+                                <span class="badge bg-info ms-1">FOREX</span>
+                            </div>
+                            <h3 class="card-title">Federal Reserve Holds Rates Steady Amid Inflation Concerns</h3>
+                            <p class="card-text">The Federal Reserve announced today that it would hold interest rates steady at its latest meeting, citing ongoing concerns about inflation despite signs of cooling price pressures in some sectors.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By Financial Times • 2 hours ago</small>
+                                <button class="btn btn-outline-primary btn-sm">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Grid -->
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                     class="card-img-top" 
+                     style="height: 200px; object-fit: cover;" 
+                     alt="News Image">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-2">
+                        <span class="badge bg-warning">COMMODITIES</span>
+                    </div>
+                    <h5 class="card-title">Oil Prices Surge Following Middle East Tensions</h5>
+                    <p class="card-text flex-grow-1">Crude oil prices jumped 3.2% today as geopolitical tensions in the Middle East raised concerns about supply disruptions in the region.</p>
+                    <div class="mt-auto">
+                        <small class="text-muted">Bloomberg • 4 hours ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                     class="card-img-top" 
+                     style="height: 200px; object-fit: cover;" 
+                     alt="News Image">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-2">
+                        <span class="badge bg-success">STOCKS</span>
+                    </div>
+                    <h5 class="card-title">Tech Stocks Rally on Strong Earnings Reports</h5>
+                    <p class="card-text flex-grow-1">Major technology companies posted better-than-expected quarterly earnings, driving a broad rally in tech stocks across global markets.</p>
+                    <div class="mt-auto">
+                        <small class="text-muted">Reuters • 6 hours ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                     class="card-img-top" 
+                     style="height: 200px; object-fit: cover;" 
+                     alt="News Image">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-2">
+                        <span class="badge bg-info">CRYPTO</span>
+                    </div>
+                    <h5 class="card-title">Bitcoin Surpasses $60,000 Amid Institutional Adoption</h5>
+                    <p class="card-text flex-grow-1">Bitcoin reached a new all-time high as several major corporations announced significant investments in cryptocurrency assets.</p>
+                    <div class="mt-auto">
+                        <small class="text-muted">CoinDesk • 8 hours ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                     class="card-img-top" 
+                     style="height: 200px; object-fit: cover;" 
+                     alt="News Image">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-2">
+                        <span class="badge bg-primary">FOREX</span>
+                    </div>
+                    <h5 class="card-title">Euro Strengthens Against Dollar on ECB Policy Outlook</h5>
+                    <p class="card-text flex-grow-1">The euro gained ground against the US dollar as European Central Bank officials signaled a more hawkish stance on monetary policy.</p>
+                    <div class="mt-auto">
+                        <small class="text-muted">MarketWatch • 10 hours ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                     class="card-img-top" 
+                     style="height: 200px; object-fit: cover;" 
+                     alt="News Image">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-2">
+                        <span class="badge bg-danger">INDICATORS</span>
+                    </div>
+                    <h5 class="card-title">US Jobless Claims Drop to Lowest Level Since Pandemic</h5>
+                    <p class="card-text flex-grow-1">Initial jobless claims fell to their lowest level in over two years, signaling continued strength in the labor market.</p>
+                    <div class="mt-auto">
+                        <small class="text-muted">Wall Street Journal • 12 hours ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                     class="card-img-top" 
+                     style="height: 200px; object-fit: cover;" 
+                     alt="News Image">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-2">
+                        <span class="badge bg-secondary">CENTRAL BANKS</span>
+                    </div>
+                    <h5 class="card-title">Bank of Japan Maintains Ultra-Low Interest Rates</h5>
+                    <p class="card-text flex-grow-1">Japan's central bank kept its benchmark interest rate unchanged at -0.1%, continuing its accommodative monetary policy stance.</p>
+                    <div class="mt-auto">
+                        <small class="text-muted">Nikkei • 1 day ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load More Button -->
+    <div class="row">
+        <div class="col-12 text-center">
+            <button class="btn btn-outline-primary">
+                <i class="bi bi-arrow-clockwise"></i> Load More News
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    // News functionality would be implemented here
+}

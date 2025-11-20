@@ -1,231 +1,101 @@
 @page "/"
 @rendermode InteractiveWebAssembly
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Global Finance Pro - Home</PageTitle>
 
-<div class="container-fluid home-page">
-    <div class="row justify-content-center">
-        <div class="col-12">
-            <div class="hero-section">
-                <h1>💱 Modern Currency Exchange</h1>
-                <p class="lead">Real-time currency conversion with beautiful visualizations and seamless experience</p>
-                <div class="cta-buttons">
-                    <a href="/converter" class="btn btn-primary btn-lg me-3">
-                        <i class="bi bi-currency-exchange"></i> Start Converting
-                    </a>
-                    <a href="#features" class="btn btn-outline-light btn-lg">
-                        <i class="bi bi-info-circle"></i> Learn More
-                    </a>
+<div class="home-page">
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>Welcome to Global Finance Pro</h1>
+            <p class="lead">
+                Your trusted partner for real-time currency exchange rates, financial insights, 
+                and portfolio management tools.
+            </p>
+            <div class="mt-4">
+                <a href="/converter" class="btn btn-primary btn-lg me-3">
+                    <i class="bi bi-currency-exchange me-2"></i>
+                    Currency Converter
+                </a>
+                <a href="/market" class="btn btn-outline-primary btn-lg">
+                    <i class="bi bi-graph-up me-2"></i>
+                    Market Overview
+                </a>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-currency-exchange"></i>
+                    </div>
+                    <h3>Real-time Exchange Rates</h3>
+                    <p>
+                        Access live currency exchange rates from over 160 countries with up-to-the-minute accuracy.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <h3>Market Analytics</h3>
+                    <p>
+                        Comprehensive market analysis tools with interactive charts and historical data visualization.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h3>Secure & Reliable</h3>
+                    <p>
+                        Bank-level security with end-to-end encryption and 99.9% uptime guarantee.
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="row justify-content-center mt-5" id="features">
-        <div class="col-12 col-md-10">
-            <h2 class="text-center mb-5">✨ Features</h2>
+
+        <!-- Additional Features -->
+        <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <i class="bi bi-wallet me-2 text-primary"></i>
+                            Portfolio Management
+                        </h4>
+                        <p class="card-text">
+                            Track your currency investments with our intuitive portfolio management tools. 
+                            Monitor performance, set alerts, and make informed decisions.
+                        </p>
+                        <a href="/portfolio" class="btn btn-outline-primary">Manage Portfolio</a>
+                    </div>
+                </div>
+            </div>
             
-            <div class="row">
-                <div class="col-12 col-md-4 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-lightning-fill"></i>
-                        </div>
-                        <h3>Real-time Rates</h3>
-                        <p>Get the most up-to-date exchange rates from reliable sources with minimal latency.</p>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-md-4 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-graph-up"></i>
-                        </div>
-                        <h3>Historical Data</h3>
-                        <p>Visualize currency trends with interactive charts showing 7-day and 30-day history.</p>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-md-4 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="bi bi-phone"></i>
-                        </div>
-                        <h3>Mobile First</h3>
-                        <p>Fully responsive design that works flawlessly on all devices from phones to desktops.</p>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <i class="bi bi-newspaper me-2 text-primary"></i>
+                            Financial News
+                        </h4>
+                        <p class="card-text">
+                            Stay informed with the latest financial news, market analysis, and economic insights 
+                            from trusted sources around the world.
+                        </p>
+                        <a href="/news" class="btn btn-outline-primary">Read News</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<style>
-    .home-page {
-        padding: 2rem 1rem;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .hero-section {
-        background: var(--neumorphism-bg);
-        border-radius: var(--border-radius-lg);
-        padding: 3rem 2rem;
-        text-align: center;
-        box-shadow: 
-            16px 16px 32px var(--neumorphism-dark-shadow),
-            -16px -16px 32px var(--neumorphism-light-shadow);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        animation: float 6s ease-in-out infinite;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .hero-section::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(67, 97, 238, 0.1) 0%, transparent 70%);
-        opacity: 0;
-        transition: opacity 0.5s ease;
-    }
-    
-    .hero-section:hover::before {
-        opacity: 1;
-    }
-    
-    .hero-section h1 {
-        font-weight: 800;
-        background: linear-gradient(90deg, #4cc9f0, #4361ee, #3a0ca3);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 1.5rem;
-        font-size: 3rem;
-        text-shadow: 0 2px 10px rgba(76, 201, 240, 0.2);
-    }
-    
-    .hero-section .lead {
-        font-size: 1.25rem;
-        color: var(--gray-text);
-        margin-bottom: 2.5rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .cta-buttons .btn {
-        margin: 0 0.75rem;
-        padding: 0.85rem 2rem;
-        font-size: 1.1rem;
-        font-weight: 600;
-        border-radius: var(--border-radius-sm);
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        box-shadow: 
-            8px 8px 16px var(--neumorphism-dark-shadow),
-            -8px -8px 16px var(--neumorphism-light-shadow);
-    }
-    
-    .btn-primary {
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        border: none;
-        color: white;
-    }
-    
-    .btn-primary:hover {
-        transform: translateY(-4px);
-        box-shadow: 
-            12px 12px 24px var(--neumorphism-dark-shadow),
-            -12px -12px 24px var(--neumorphism-light-shadow),
-            0 0 20px rgba(67, 97, 238, 0.4);
-    }
-    
-    .btn-outline-light {
-        background: transparent;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        color: var(--light-text);
-    }
-    
-    .btn-outline-light:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: var(--accent-color);
-        transform: translateY(-4px);
-        box-shadow: 
-            8px 8px 16px var(--neumorphism-dark-shadow),
-            -8px -8px 16px var(--neumorphism-light-shadow),
-            0 0 15px rgba(76, 201, 240, 0.3);
-    }
-    
-    .feature-card {
-        background: var(--neumorphism-bg);
-        border-radius: var(--border-radius-md);
-        padding: 2rem;
-        height: 100%;
-        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        box-shadow: 
-            10px 10px 20px var(--neumorphism-dark-shadow),
-            -10px -10px 20px var(--neumorphism-light-shadow);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        text-align: center;
-    }
-    
-    .feature-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 
-            15px 15px 30px var(--neumorphism-dark-shadow),
-            -15px -15px 30px var(--neumorphism-light-shadow),
-            0 0 30px rgba(76, 201, 240, 0.2);
-    }
-    
-    .feature-icon {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, var(--accent-color), #38bdf8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-    
-    .feature-card h3 {
-        font-weight: 700;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-    }
-    
-    .feature-card p {
-        color: var(--gray-text);
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-    
-    @@media (max-width: 768px) {
-        .hero-section {
-            padding: 2rem 1.5rem;
-        }
-        
-        .hero-section h1 {
-            font-size: 2.2rem;
-        }
-        
-        .hero-section .lead {
-            font-size: 1.1rem;
-        }
-        
-        .cta-buttons .btn {
-            display: block;
-            width: 80%;
-            margin: 0.75rem auto;
-            padding: 0.75rem 1.5rem;
-        }
-        
-        .feature-card {
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-    }
-</style>
